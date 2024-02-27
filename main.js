@@ -52,6 +52,28 @@ d.addEventListener("click", async (e)=>{
             </div>
         </div>
         `;
+    }
 
+    if(e.target.matches("#searcher-country")){
+        let input = d.querySelector("#searched-country");
+        let countryName = input.value;
+        if(countryName !== ""){
+            countryName = countryName.charAt(0).toUpperCase() + countryName.slice(1);
+            let country = await ((await fetch(`https://restcountries.com/v3.1/name/${countryName}`)).json());
+            let contenedorPaises = d.querySelector("#countries-response");
+            contenedorPaises.innerHTML = "";
+            country.map((e) => {
+                contenedorPaises.insertAdjacentHTML("beforeend", /*html*/ `
+            <div class="country" data-name-country=${e.name.common}  data-bs-toggle="modal" data-bs-target="#modalCountry">
+                <div class="country-flag">
+                    <img src=${e.flags.png}>
+                </div>
+                <p class="country-name">${e.name.common}</p>
+            </div>
+                `);
+            })
+        } else {
+            location.reload();
+        }
     }
 })
