@@ -5,7 +5,6 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    background-color: rgb(41, 41, 41);
 }
 
 #countries-response {
@@ -19,7 +18,6 @@
 
 .header-title {
     text-align: center;
-    color: white;
     padding: 2rem 0rem;
     font-size: 3rem;
     margin-bottom: 1rem;
@@ -31,7 +29,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0rem 1rem;
+    padding: 1rem;
+    border: 1px solid rgb(186, 186, 186);
+    border-radius: 5px;
+    margin: 0.2rem;
 }
 
 .country-flag {
@@ -48,14 +49,35 @@
 
 
 .country:hover {
-    background-color: rgb(76, 75, 75);
+    background-color: rgb(195, 195, 195);
     cursor: pointer;
 }
 
 .country-name {
     background-color: transparent;
-    color: white;
     font-weight: 500;
     font-size: 20px;
     padding: 1rem;
+}
+
+.data-country {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 0.2rem;
+    border: 1px solid rgb(195, 195, 195);
+}
+
+.data-country .location-country, .data-country .visit-country{
+    margin-top: 0.5rem;
+}
+
+.data-country .visit-country{
+    display: block;
+    width: 100%;
+}
+
+.data-country .visit-country a{
+    width: 100%;
 }
